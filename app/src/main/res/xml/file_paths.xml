@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<paths xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Внутренняя директория getFilesDir() -->
+    <files-path name="files" path="." />
+
+    <!-- Внутренний cache getCacheDir() -->
+    <cache-path name="cache" path="." />
+
+    <!-- Внешняя общая область (корень внешнего хранилища) -->
+    <external-path name="external" path="." />
+
+    <!-- Внешние файлы приложения /Android/data/your.package.name/files -->
+    <external-files-path name="external_files" path="." />
+
+    <!-- Если нужно разрешить конкретную подпапку внутри files -->
+    <!-- <files-path name="images" path="images/" /> -->
+
+    <!-- Если нужно дать доступ к корню устройства (редко) -->
+    <!-- <root-path name="root" path="." /> -->
+
+</paths>

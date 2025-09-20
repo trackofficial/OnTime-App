@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingLeft="5dp"
+    android:paddingRight="5dp"
+    android:paddingTop="5dp"
+    android:paddingBottom="12dp">
+
+    <TextView
+        android:id="@+id/ivEmoji"
+        android:layout_width="42dp"
+        android:layout_height="42dp"
+        android:gravity="center"
+        android:text="📝"
+        android:textSize="19sp"
+        android:background="@drawable/form_round"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:paddingTop="14dp"
+        android:paddingBottom="14dp"
+        android:background="@drawable/form_block"
+        android:layout_marginLeft="10dp"
+        android:id="@+id/contentRoot"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingStart="12dp"
+        android:paddingEnd="56dp"
+    android:minHeight="42dp"
+    app:layout_constraintStart_toEndOf="@id/ivEmoji"
+    app:layout_constraintTop_toTopOf="@id/ivEmoji"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintBottom_toBottomOf="parent">
+
+    <TextView
+        android:fontFamily="@font/tilda_sans_semibold"
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Title"
+        android:textSize="16sp"
+        android:maxLines="1"
+        android:textColor="@color/white"
+        android:ellipsize="end"/>
+
+    <TextView
+        android:textColor="@color/stroke_color"
+        android:id="@+id/description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Description"
+        android:textSize="11sp"
+        android:fontFamily="@font/tilda_sans_medium"
+        android:layout_marginTop="4dp"
+        android:maxLines="6"
+        android:ellipsize="end"/>
+</LinearLayout>
+
+
+<ImageButton
+android:id="@+id/btnMore"
+android:layout_width="30dp"
+android:layout_height="30dp"
+android:layout_marginRight="4dp"
+android:background="@drawable/etc_icon"
+app:tint="?attr/colorOnSurface"
+app:layout_constraintEnd_toEndOf="parent"
+app:layout_constraintTop_toTopOf="@id/contentRoot"
+app:layout_constraintBottom_toBottomOf="@id/contentRoot"
+app:layout_constraintVertical_bias="0.5"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>

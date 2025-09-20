@@ -20,13 +20,25 @@ class WeekCalendarController(
     private val activeDates: Set<Long>,
     private val onDateSelected: (Calendar) -> Unit
 ) {
-    private val displayedWeek = Calendar.getInstance().apply {
-        set(Calendar.DAY_OF_WEEK, Calendar.MONDAY)
-    }
+    private var lastRenderedWeekStart: Long = -1L
 
     fun renderWeek() {
+        val currentWeekStart = Calendar.getInstance().apply {
+            set(Calendar.DAY_OF_WEEK, Calendar.MONDAY)
+            set(Calendar.HOUR_OF_DAY, 0)
+            set(Calendar.MINUTE, 0)
+            set(Calendar.SECOND, 0)
+            set(Calendar.MILLISECOND, 0)
+        }
+
+        val currentWeekStartMillis = currentWeekStart.timeInMillis
+
+        if (currentWeekStartMillis == lastRenderedWeekStart) return
+
+        lastRenderedWeekStart = currentWeekStartMillis
+
         container.removeAllViews()
-        val calendar = displayedWeek.clone() as Calendar
+        val calendar = currentWeekStart.clone() as Calendar
         val dayFormat = SimpleDateFormat("EEE", Locale.ENGLISH)
 
         repeat(7) {
@@ -50,7 +62,7 @@ class WeekCalendarController(
             ).apply {
                 setMargins(12, 8, 12, 8)
             }
-            minimumWidth = 100 // предотвращает сжатие текста
+            minimumWidth = 100
         }
 
         val dayText = TextView(context).apply {
@@ -78,9 +90,9 @@ class WeekCalendarController(
         val underline = View(context).apply {
             layoutParams = LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.MATCH_PARENT,
-                8 // толщина полоски
+                8
             ).apply {
-                topMargin = 12 // отступ от текста
+                topMargin = 12
                 gravity = Gravity.CENTER_HORIZONTAL
             }
             setBackgroundColor(Color.TRANSPARENT)

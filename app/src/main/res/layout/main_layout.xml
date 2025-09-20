@@ -6,7 +6,7 @@
     android:orientation="vertical"
     android:background="@color/background"
     android:gravity="center_horizontal"
-    android:padding="16dp">
+    android:padding="12dp">
 
     <LinearLayout
         android:id="@+id/weekCalendarContainer"
@@ -14,9 +14,37 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:gravity="center"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginTop="6dp"
         android:padding="4dp" />
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/blockList"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginTop="12dp"
+        android:clipToPadding="false"
+        android:paddingBottom="8dp"
+        android:scrollbars="vertical" />
 
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/form_button"
+        android:layout_gravity="end|bottom"
+        android:layout_marginTop="8dp">
+
+        <View
+            android:layout_gravity="center"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@drawable/ontime_icon" />
+
+        <Button
+            android:id="@+id/btnCreateBlock"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:background="@color/none"
+            android:contentDescription="Создать блок" />
+    </FrameLayout>
 </LinearLayout>

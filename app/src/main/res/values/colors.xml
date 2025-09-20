@@ -2,6 +2,8 @@
 <resources>
     <color name="background">#18171D</color>
     <color name="background_block">#242328</color>
+    <color name="background_for_spec_button">#17151B</color>
     <color name="stroke_color">#595762</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="none">#00FFFFFF</color>
 </resources>
